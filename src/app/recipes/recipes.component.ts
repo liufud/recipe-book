@@ -8,10 +8,8 @@ import { ActivatedRoute } from '../../../node_modules/@angular/router';
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
-  recipe: Recipe;
   paramSubscription: Subscription;
 
   constructor(
@@ -20,16 +18,6 @@ export class RecipesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.recipeService.recipeSelected
-    .subscribe(
-      (recipe: Recipe) => {
-        this.recipe = recipe;
-      }
-    );
-  }
-
-  displayRecipeDetail(recipe: Recipe) {
-    this.recipe = recipe;
   }
 
 }
