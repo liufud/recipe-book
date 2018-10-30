@@ -3,8 +3,8 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             [disabled]="!recipeForm.valid"
             class="btn btn-success">Save</button>
           <button type="submit" class="btn btn-danger" (click)="onCancel()">Cancel</button>
@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input 
+            <input
               type="text"
               id="name"
               formControlName="name"
@@ -26,7 +26,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imagePath">Image URL</label>
-            <input 
+            <input
               type="text"
               id="imagePath"
               formControlName="imagePath"
@@ -44,7 +44,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea 
+            <textarea
               type="text"
               id="description"
               formControlName="description"
@@ -55,35 +55,35 @@
       </div>
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
-          <div 
-            class="row" 
-            *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"
+          <div
+            class="row"
+            *ngFor="let ingredientCtrl of getControls(); let i = index"
             [formGroupName]="i"
             style="margin-top: 10px;">
             <div class="col-xs-8">
-              <input 
+              <input
               type="text"
               class="form-control"
               formControlName="name">
             </div>
             <div class="col-xs-2">
-                <input 
+                <input
                 type="number"
                 class="form-control"
                 formControlName="amount">
             </div>
             <div class="col-xs-2">
-              <button 
+              <button
                 class="btn btn-danger"
                 type="button"
-                (click)="onDeleteIngredient(i)">X</button>  
+                (click)="onDeleteIngredient(i)">X</button>
             </div>
           </div>
           <hr>
           <div class="row">
             <div class="col-xs-12">
-              <button 
-                class="btn btn-success" 
+              <button
+                class="btn btn-success"
                 type="button"
                 (click)="onAddIngredient()">Add Ingredient</button>
             </div>
